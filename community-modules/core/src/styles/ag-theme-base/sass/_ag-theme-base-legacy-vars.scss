@@ -2,180 +2,159 @@
 // Import old-style var names to avoid breaking 3rd party themes that use them
 
 @function ag-theme-base-import-legacy-vars() {
-    $params: ();
-    $allowed: map-keys($ag-theme-base-default-params);
 
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "foreground-color", if(variable-exists("ag-foreground-color"), $ag-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "foreground-color", if(variable-exists("foreground-color"), $foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "data-color", if(variable-exists("ag-data-color"), $ag-data-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "data-color", if(variable-exists("data-color"), $data-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "secondary-foreground-color", if(variable-exists("ag-secondary-foreground-color"), $ag-secondary-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "secondary-foreground-color", if(variable-exists("secondary-foreground-color"), $secondary-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-foreground-color", if(variable-exists("ag-header-foreground-color"), $ag-header-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-foreground-color", if(variable-exists("header-foreground-color"), $header-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "disabled-foreground-color", if(variable-exists("ag-disabled-foreground-color"), $ag-disabled-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "disabled-foreground-color", if(variable-exists("disabled-foreground-color"), $disabled-foreground-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "background-color", if(variable-exists("ag-background-color"), $ag-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "background-color", if(variable-exists("background-color"), $background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-background-color", if(variable-exists("ag-header-background-color"), $ag-header-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-background-color", if(variable-exists("header-background-color"), $header-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "subheader-background-color", if(variable-exists("ag-subheader-background-color"), $ag-subheader-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "subheader-background-color", if(variable-exists("subheader-background-color"), $subheader-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "control-panel-background-color", if(variable-exists("ag-control-panel-background-color"), $ag-control-panel-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "control-panel-background-color", if(variable-exists("control-panel-background-color"), $control-panel-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-row-background-color", if(variable-exists("ag-selected-row-background-color"), $ag-selected-row-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-row-background-color", if(variable-exists("selected-row-background-color"), $selected-row-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "odd-row-background-color", if(variable-exists("ag-odd-row-background-color"), $ag-odd-row-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "odd-row-background-color", if(variable-exists("odd-row-background-color"), $odd-row-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-hover-color", if(variable-exists("ag-row-hover-color"), $ag-row-hover-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-hover-color", if(variable-exists("row-hover-color"), $row-hover-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-border-color", if(variable-exists("ag-range-selection-border-color"), $ag-range-selection-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-border-color", if(variable-exists("range-selection-border-color"), $range-selection-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-background-color", if(variable-exists("ag-range-selection-background-color"), $ag-range-selection-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-background-color", if(variable-exists("range-selection-background-color"), $range-selection-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-highlight-color", if(variable-exists("ag-range-selection-highlight-color"), $ag-range-selection-highlight-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-highlight-color", if(variable-exists("range-selection-highlight-color"), $range-selection-highlight-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-tab-underline-color", if(variable-exists("ag-selected-tab-underline-color"), $ag-selected-tab-underline-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-tab-underline-color", if(variable-exists("selected-tab-underline-color"), $selected-tab-underline-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-tab-underline-width", if(variable-exists("ag-selected-tab-underline-width"), $ag-selected-tab-underline-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-tab-underline-width", if(variable-exists("selected-tab-underline-width"), $selected-tab-underline-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-tab-underline-transition-speed", if(variable-exists("ag-selected-tab-underline-transition-speed"), $ag-selected-tab-underline-transition-speed, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "selected-tab-underline-transition-speed", if(variable-exists("selected-tab-underline-transition-speed"), $selected-tab-underline-transition-speed, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-chart-category-background-color", if(variable-exists("ag-range-selection-chart-category-background-color"), $ag-range-selection-chart-category-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-chart-category-background-color", if(variable-exists("range-selection-chart-category-background-color"), $range-selection-chart-category-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-chart-background-color", if(variable-exists("ag-range-selection-chart-background-color"), $ag-range-selection-chart-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "range-selection-chart-background-color", if(variable-exists("range-selection-chart-background-color"), $range-selection-chart-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-cell-hover-background-color", if(variable-exists("ag-header-cell-hover-background-color"), $ag-header-cell-hover-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-cell-hover-background-color", if(variable-exists("header-cell-hover-background-color"), $header-cell-hover-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-cell-moving-background-color", if(variable-exists("ag-header-cell-moving-background-color"), $ag-header-cell-moving-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-cell-moving-background-color", if(variable-exists("header-cell-moving-background-color"), $header-cell-moving-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "value-change-value-highlight-background-color", if(variable-exists("ag-value-change-value-highlight-background-color"), $ag-value-change-value-highlight-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "value-change-value-highlight-background-color", if(variable-exists("value-change-value-highlight-background-color"), $value-change-value-highlight-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "value-change-delta-up-color", if(variable-exists("ag-value-change-delta-up-color"), $ag-value-change-delta-up-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "value-change-delta-up-color", if(variable-exists("value-change-delta-up-color"), $value-change-delta-up-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "value-change-delta-down-color", if(variable-exists("ag-value-change-delta-down-color"), $ag-value-change-delta-down-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "value-change-delta-down-color", if(variable-exists("value-change-delta-down-color"), $value-change-delta-down-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "chip-background-color", if(variable-exists("ag-chip-background-color"), $ag-chip-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "chip-background-color", if(variable-exists("chip-background-color"), $chip-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders", if(variable-exists("ag-borders"), $ag-borders, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders", if(variable-exists("borders"), $borders, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders-critical", if(variable-exists("ag-borders-critical"), $ag-borders-critical, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders-critical", if(variable-exists("borders-critical"), $borders-critical, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders-secondary", if(variable-exists("ag-borders-secondary"), $ag-borders-secondary, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders-secondary", if(variable-exists("borders-secondary"), $borders-secondary, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders-side-button", if(variable-exists("ag-borders-side-button"), $ag-borders-side-button, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "borders-side-button", if(variable-exists("borders-side-button"), $borders-side-button, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "border-radius", if(variable-exists("ag-border-radius"), $ag-border-radius, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "border-radius", if(variable-exists("border-radius"), $border-radius, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "border-color", if(variable-exists("ag-border-color"), $ag-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "border-color", if(variable-exists("border-color"), $border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "secondary-border-color", if(variable-exists("ag-secondary-border-color"), $ag-secondary-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "secondary-border-color", if(variable-exists("secondary-border-color"), $secondary-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-border-color", if(variable-exists("ag-row-border-color"), $ag-row-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-border-color", if(variable-exists("row-border-color"), $row-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "cell-horizontal-border", if(variable-exists("ag-cell-horizontal-border"), $ag-cell-horizontal-border, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "cell-horizontal-border", if(variable-exists("cell-horizontal-border"), $cell-horizontal-border, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator", if(variable-exists("ag-header-column-separator"), $ag-header-column-separator, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator", if(variable-exists("header-column-separator"), $header-column-separator, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator-height", if(variable-exists("ag-header-column-separator-height"), $ag-header-column-separator-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator-height", if(variable-exists("header-column-separator-height"), $header-column-separator-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator-width", if(variable-exists("ag-header-column-separator-width"), $ag-header-column-separator-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator-width", if(variable-exists("header-column-separator-width"), $header-column-separator-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator-color", if(variable-exists("ag-header-column-separator-color"), $ag-header-column-separator-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-separator-color", if(variable-exists("header-column-separator-color"), $header-column-separator-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle", if(variable-exists("ag-header-column-resize-handle"), $ag-header-column-resize-handle, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle", if(variable-exists("header-column-resize-handle"), $header-column-resize-handle, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle-height", if(variable-exists("ag-header-column-resize-handle-height"), $ag-header-column-resize-handle-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle-height", if(variable-exists("header-column-resize-handle-height"), $header-column-resize-handle-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle-width", if(variable-exists("ag-header-column-resize-handle-width"), $ag-header-column-resize-handle-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle-width", if(variable-exists("header-column-resize-handle-width"), $header-column-resize-handle-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle-color", if(variable-exists("ag-header-column-resize-handle-color"), $ag-header-column-resize-handle-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-column-resize-handle-color", if(variable-exists("header-column-resize-handle-color"), $header-column-resize-handle-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-disabled-background-color", if(variable-exists("ag-input-disabled-background-color"), $ag-input-disabled-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-disabled-background-color", if(variable-exists("input-disabled-background-color"), $input-disabled-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-border-color", if(variable-exists("ag-input-border-color"), $ag-input-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-border-color", if(variable-exists("input-border-color"), $input-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-background-color", if(variable-exists("ag-checkbox-background-color"), $ag-checkbox-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-background-color", if(variable-exists("checkbox-background-color"), $checkbox-background-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-border-radius", if(variable-exists("ag-checkbox-border-radius"), $ag-checkbox-border-radius, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-border-radius", if(variable-exists("checkbox-border-radius"), $checkbox-border-radius, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-checked-color", if(variable-exists("ag-checkbox-checked-color"), $ag-checkbox-checked-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-checked-color", if(variable-exists("checkbox-checked-color"), $checkbox-checked-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-unchecked-color", if(variable-exists("ag-checkbox-unchecked-color"), $ag-checkbox-unchecked-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-unchecked-color", if(variable-exists("checkbox-unchecked-color"), $checkbox-unchecked-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-indeterminate-color", if(variable-exists("ag-checkbox-indeterminate-color"), $ag-checkbox-indeterminate-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "checkbox-indeterminate-color", if(variable-exists("checkbox-indeterminate-color"), $checkbox-indeterminate-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-off-color", if(variable-exists("ag-toggle-button-off-color"), $ag-toggle-button-off-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-off-color", if(variable-exists("toggle-button-off-color"), $toggle-button-off-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-on-color", if(variable-exists("ag-toggle-button-on-color"), $ag-toggle-button-on-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-on-color", if(variable-exists("toggle-button-on-color"), $toggle-button-on-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-switch-color", if(variable-exists("ag-toggle-button-switch-color"), $ag-toggle-button-switch-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-switch-color", if(variable-exists("toggle-button-switch-color"), $toggle-button-switch-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-switch-border-width", if(variable-exists("ag-toggle-button-switch-border-width"), $ag-toggle-button-switch-border-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-switch-border-width", if(variable-exists("toggle-button-switch-border-width"), $toggle-button-switch-border-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-height", if(variable-exists("ag-toggle-button-height"), $ag-toggle-button-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-height", if(variable-exists("toggle-button-height"), $toggle-button-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-width", if(variable-exists("ag-toggle-button-width"), $ag-toggle-button-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "toggle-button-width", if(variable-exists("toggle-button-width"), $toggle-button-width, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-focus-box-shadow", if(variable-exists("ag-input-focus-box-shadow"), $ag-input-focus-box-shadow, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-focus-box-shadow", if(variable-exists("input-focus-box-shadow"), $input-focus-box-shadow, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-focus-border-color", if(variable-exists("ag-input-focus-border-color"), $ag-input-focus-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "input-focus-border-color", if(variable-exists("input-focus-border-color"), $input-focus-border-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "minichart-selected-chart-color", if(variable-exists("ag-minichart-selected-chart-color"), $ag-minichart-selected-chart-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "minichart-selected-chart-color", if(variable-exists("minichart-selected-chart-color"), $minichart-selected-chart-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "minichart-selected-page-color", if(variable-exists("ag-minichart-selected-page-color"), $ag-minichart-selected-page-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "minichart-selected-page-color", if(variable-exists("minichart-selected-page-color"), $minichart-selected-page-color, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "grid-size", if(variable-exists("ag-grid-size"), $ag-grid-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "grid-size", if(variable-exists("grid-size"), $grid-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icon-size", if(variable-exists("ag-icon-size"), $ag-icon-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icon-size", if(variable-exists("icon-size"), $icon-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-container-horizontal-padding", if(variable-exists("ag-widget-container-horizontal-padding"), $ag-widget-container-horizontal-padding, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-container-horizontal-padding", if(variable-exists("widget-container-horizontal-padding"), $widget-container-horizontal-padding, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-container-vertical-padding", if(variable-exists("ag-widget-container-vertical-padding"), $ag-widget-container-vertical-padding, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-container-vertical-padding", if(variable-exists("widget-container-vertical-padding"), $widget-container-vertical-padding, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-horizontal-spacing", if(variable-exists("ag-widget-horizontal-spacing"), $ag-widget-horizontal-spacing, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-horizontal-spacing", if(variable-exists("widget-horizontal-spacing"), $widget-horizontal-spacing, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-vertical-spacing", if(variable-exists("ag-widget-vertical-spacing"), $ag-widget-vertical-spacing, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "widget-vertical-spacing", if(variable-exists("widget-vertical-spacing"), $widget-vertical-spacing, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "cell-horizontal-padding", if(variable-exists("ag-cell-horizontal-padding"), $ag-cell-horizontal-padding, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "cell-horizontal-padding", if(variable-exists("cell-horizontal-padding"), $cell-horizontal-padding, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "cell-widget-spacing", if(variable-exists("ag-cell-widget-spacing"), $ag-cell-widget-spacing, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "cell-widget-spacing", if(variable-exists("cell-widget-spacing"), $cell-widget-spacing, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-height", if(variable-exists("ag-row-height"), $ag-row-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-height", if(variable-exists("row-height"), $row-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-height", if(variable-exists("ag-header-height"), $ag-header-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "header-height", if(variable-exists("header-height"), $header-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "list-item-height", if(variable-exists("ag-list-item-height"), $ag-list-item-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "list-item-height", if(variable-exists("list-item-height"), $list-item-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "column-select-indent-size", if(variable-exists("ag-column-select-indent-size"), $ag-column-select-indent-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "column-select-indent-size", if(variable-exists("column-select-indent-size"), $column-select-indent-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-group-indent-size", if(variable-exists("ag-row-group-indent-size"), $ag-row-group-indent-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "row-group-indent-size", if(variable-exists("row-group-indent-size"), $row-group-indent-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "filter-tool-panel-group-indent", if(variable-exists("ag-filter-tool-panel-group-indent"), $ag-filter-tool-panel-group-indent, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "filter-tool-panel-group-indent", if(variable-exists("filter-tool-panel-group-indent"), $filter-tool-panel-group-indent, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "filter-tool-panel-top-level-row-height", if(variable-exists("ag-filter-tool-panel-top-level-row-height"), $ag-filter-tool-panel-top-level-row-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "filter-tool-panel-top-level-row-height", if(variable-exists("filter-tool-panel-top-level-row-height"), $filter-tool-panel-top-level-row-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "filter-tool-panel-sub-level-row-height", if(variable-exists("ag-filter-tool-panel-sub-level-row-height"), $ag-filter-tool-panel-sub-level-row-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "filter-tool-panel-sub-level-row-height", if(variable-exists("filter-tool-panel-sub-level-row-height"), $filter-tool-panel-sub-level-row-height, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "full-width-tabs", if(variable-exists("ag-full-width-tabs"), $ag-full-width-tabs, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "full-width-tabs", if(variable-exists("full-width-tabs"), $full-width-tabs, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "font-family", if(variable-exists("ag-font-family"), $ag-font-family, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "font-family", if(variable-exists("font-family"), $font-family, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "font-size", if(variable-exists("ag-font-size"), $ag-font-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "font-size", if(variable-exists("font-size"), $font-size, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icon-font-family", if(variable-exists("ag-icon-font-family"), $ag-icon-font-family, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icon-font-family", if(variable-exists("icon-font-family"), $icon-font-family, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icons-data", if(variable-exists("ag-icons-data"), $ag-icons-data, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icons-data", if(variable-exists("icons-data"), $icons-data, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icons-font-codes", if(variable-exists("ag-icons-font-codes"), $ag-icons-font-codes, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "icons-font-codes", if(variable-exists("icons-font-codes"), $icons-font-codes, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "card-radius", if(variable-exists("ag-card-radius"), $ag-card-radius, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "card-radius", if(variable-exists("card-radius"), $card-radius, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "card-shadow", if(variable-exists("ag-card-shadow"), $ag-card-shadow, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "card-shadow", if(variable-exists("card-shadow"), $card-shadow, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "popup-shadow", if(variable-exists("ag-popup-shadow"), $ag-popup-shadow, $ag-not-defined), $allowed);
-    /* auto-generated do not edit */ $params: ag-merge-legacy-var($params, "popup-shadow", if(variable-exists("popup-shadow"), $popup-shadow, $ag-not-defined), $allowed);
+    // _ag-theme-base-vars.scss from v22.1.1
+    $ag-foreground-opacity: 1 !default;
+    $ag-secondary-foreground-color-opacity: 1 !default;
+    $ag-disabled-foreground-color-opacity: 0.5 !default;
+    $ag-border-color: transparent !default;
+    $ag-background-color: #fff !default;
+    $ag-foreground-color: #000 !default;
+    $ag-header-background-color: $ag-background-color !default;
+    $ag-header-foreground-color: $ag-foreground-color !default;
+    $ag-icon-color: lightgray !default;
+    $ag-alt-icon-color: $ag-background-color !default;
+    $ag-accent-color: transparent !default;
+    $ag-primary-color: transparent !default;
+    $ag-range-selection-background-color: $ag-icon-color !default;
+    $ag-grid-size: 4px !default;
+    $ag-icon-size: 12px !default;
+    $ag-header-height: $ag-grid-size * 6 + 1 !default;
+    $ag-row-height: ($ag-grid-size * 6 + 1) !default;
+    $ag-cell-horizontal-padding: $ag-grid-size * 3 !default;
+    $ag-virtual-item-height: $ag-grid-size * 5 !default;
+    $ag-header-icon-size: 14px !default;
+    $ag-font-family: 'Helvetica Neue', sans-serif !default;
+    $ag-font-size: 14px !default;
+    $ag-font-weight: 400 !default;
+    $ag-secondary-font-family: $ag-font-family !default;
+    $ag-secondary-font-size: 14px !default;
+    $ag-secondary-font-weight: 400 !default;
+    $ag-tooltip-background-color: $ag-background-color !default;
+    $ag-tooltip-foreground-color: $ag-foreground-color !default;
+    $ag-tooltip-border-radius: 2px !default;
+    $ag-tooltip-padding: 5px !default;
+    $ag-tooltip-border-width: 1px !default;
+    $ag-tooltip-border-style: solid !default;
+    $ag-tooltip-border-color: #ebebeb !default;
+    $ag-card-shadow: none !default;
+    $ag-card-radius: 0 !default;
+    $ag-row-border-width: 0 !default;
+    $ag-transition-speed: 120ms !default;
+    $ag-cell-horizontal-border: 1px solid transparent !default;
+    $ag-toolpanel-indent-size: $ag-grid-size + $ag-icon-size !default;
+    $ag-row-group-indent-size: $ag-grid-size * 3 + $ag-icon-size !default;
+    $ag-header-cell-moving-background-color: rgb(190, 190, 190) !default;
+    $ag-input-disabled-background-color: #ebebeb !default;
+    $ag-input-border-color: #000000 !default;
+    $ag-dialog-background-color: $ag-background-color !default;
+    $ag-dialog-border-size: 1px !default;
+    $ag-dialog-border-style: solid !default;
+    $ag-dialog-border-color: $ag-border-color !default;
+    $ag-dialog-title-background-color: $ag-header-background-color !default;
+    $ag-dialog-title-foreground-color: $ag-header-foreground-color !default;
+    $ag-dialog-title-height: $ag-header-height !default;
+    $ag-dialog-title-font-family: $ag-secondary-font-family !default;
+    $ag-dialog-title-font-size: $ag-secondary-font-size !default;
+    $ag-dialog-title-font-weight: $ag-secondary-font-weight !default;
+    $ag-dialog-title-padding: 5px 10px !default;
+    $ag-dialog-title-icon-size: max(20px, $ag-icon-size) !default;
+    $ag-tool-panel-background-color: $ag-background-color !default;
+    $ag-group-component-background-color: lighten($ag-tool-panel-background-color, 1%) !default;
+    $ag-group-component-border-color: lighten($ag-border-color, 5%) !default;
+    $ag-group-component-title-background-color: darken($ag-group-component-background-color, 5%) !default;
+    $ag-range-selection-chart-background-color: adjust-hue($ag-range-selection-background-color, 25%) !default;
+    $ag-range-selection-chart-category-background-color: adjust-hue($ag-range-selection-background-color, -80%) !default;
+    
 
+    @return (
+        foreground-color: $ag-foreground-opacity,
+        secondary-foreground-color: rgba($ag-foreground-color, $ag-secondary-foreground-color-opacity),
+        header-foreground-color: $ag-header-foreground-color,
+        disabled-foreground-color: rgba($ag-foreground-color, $ag-disabled-foreground-color-opacity),
+        background-color: $ag-background-color,
+        header-background-color: $ag-header-background-color,
+        
+        control-panel-background-color: $ag-tool-panel-background-color,
+        selected-row-background-color: ag-derived(background-color, $mix: foreground-color 25%), // TODO
+        odd-row-background-color: null, // TODO
+        row-hover-color: null, // TODO
+        range-selection-border-color: $ag-primary-color,
+        range-selection-background-color: $ag-range-selection-background-color,
+        range-selection-highlight-color: ag-derived(range-selection-border-color), // TODO
+        selected-tab-underline-color: $ag-primary-color, // TODO
+        selected-tab-underline-width: 0, // TODO
+        selected-tab-underline-transition-speed: null, // TODO
+        range-selection-chart-category-background-color: $ag-range-selection-chart-category-background-color,
+        range-selection-chart-background-color: $ag-range-selection-chart-background-color,
+        header-cell-hover-background-color: null, // TODO
+        header-cell-moving-background-color: $ag-header-cell-moving-background-color,
+        value-change-value-highlight-background-color: rgba(#16A085, 0.5), // TODO
+        value-change-delta-up-color: #43a047, // TODO
+        value-change-delta-down-color: #e53935, // TODO
+        chip-background-color: null, // TODO
+        borders: true, // TODO
+        borders-critical: ag-derived(borders), // TODO
+        borders-secondary: ag-derived(borders), // TODO
+        borders-side-button: ag-derived(borders), // TODO
+        border-radius: $ag-card-radius,
+        border-color: $ag-border-color,
+        secondary-border-color: ag-derived(border-color), // TODO
+        row-border-color: if($ag-row-border-width and $ag-row-border-width > 0, $ag-border-color, null),
+        cell-horizontal-border: $ag-cell-horizontal-border, // TODO
+        header-column-separator: false, // TODO
+            header-column-separator-height: 100%, // TODO
+            header-column-separator-width: 1px, // TODO
+            header-column-separator-color: ag-derived(border-color, $opacity: 0.5), // TODO
+        header-column-resize-handle: false, // TODO
+            header-column-resize-handle-height: 50%, // TODO
+            header-column-resize-handle-width: 1px, // TODO
+            header-column-resize-handle-color: ag-derived(border-color, $opacity: 0.5), // TODO
+        input-disabled-background-color: $ag-input-disabled-background-color,
+        input-border-color: $ag-input-border-color, // TODO
+        checkbox-background-color: $ag-alt-icon-color,
+        checkbox-border-radius: ag-derived(border-radius), // TODO
+        checkbox-checked-color: $ag-accent-color,
+        checkbox-unchecked-color: ag-derived(foreground-color), // TODO
+        checkbox-indeterminate-color: ag-derived(checkbox-unchecked-color), // TODO
+        toggle-button-off-color: ag-derived(checkbox-unchecked-color), // TODO
+        toggle-button-switch-color: ag-derived(background-color), // TODO
+        toggle-button-switch-border-width: 1px, // TODO
+        toggle-button-height: ag-derived(icon-size), // TODO
+        toggle-button-width: ag-derived(toggle-button-height, $times: 2), // TODO
+        grid-size: $ag-grid-size,
+        icon-size: $ag-icon-size,
+        widget-container-horizontal-padding: ag-derived(grid-size, $times: 1.5), // TODO
+        widget-container-vertical-padding: ag-derived(grid-size, $times: 1.5), // TODO
+        widget-horizontal-spacing: ag-derived(grid-size, $times: 1.5), // TODO
+        widget-vertical-spacing: ag-derived(grid-size), // TODO
+        cell-horizontal-padding: $ag-cell-horizontal-padding,
+        cell-widget-spacing: ag-derived(cell-horizontal-padding), // TODO
+        row-height: $ag-row-height,
+        header-height: $ag-header-height,
+        list-item-height: $ag-virtual-item-height,
+        column-select-indent-size: $ag-toolpanel-indent-size,
+        row-group-indent-size: $ag-row-group-indent-size,
+        filter-tool-panel-group-indent: 16px, // TODO
+        filter-tool-panel-top-level-row-height: ag-derived(grid-size, $times: 8), // TODO
+        filter-tool-panel-sub-level-row-height: ag-derived(grid-size, $times: 6), // TODO
+        full-width-tabs: false, // TODO
+        font-family: $ag-font-family,
+        font-size: $ag-font-size,
+        icon-font-family: $ag-theme-base-icon-font-family, // TODO
+        icons-data: $ag-theme-base-icons-data, // TODO
+        icons-font-codes: $ag-theme-base-icons-font-codes, // TODO
+        popup-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3) // TODO
+    );
 
-    @return $params;
+    // TODO emit CSS for these
+    // $ag-group-component-*
+    // $ag-tooltip-*
+    // $ag-dialog-*
+    // $ag-font-weight
+    // $ag-secondary-font-*
+
+    // TODO warning as removed
+    // (ag-)icon-color
+    // (ag-)rich-select-item-height
 };
