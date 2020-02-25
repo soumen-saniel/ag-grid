@@ -1,7 +1,10 @@
 // We prefixed all global vars with "ag-" to avoid clashes with other libraries
 // Import old-style var names to avoid breaking 3rd party themes that use them
+@import "./ag-theme-base-font-vars";
 
 @function ag-theme-base-import-legacy-vars() {
+
+    @debug "!!!!!", $ag-header-height;
 
     // _ag-theme-base-vars.scss from v22.1.1
     $ag-foreground-opacity: 1 !default;
@@ -16,6 +19,15 @@
     $ag-alt-icon-color: $ag-background-color !default;
     $ag-accent-color: transparent !default;
     $ag-primary-color: transparent !default;
+    $ag-selected-color: null !default;
+    $ag-hover-color: null !default;
+    $ag-header-cell-hover-background-color: null !default;
+    $ag-range-selection-highlight-color: null !default;
+    $ag-odd-row-background-color: null !default;
+    $ag-value-change-value-highlight-background-color: null !default;
+    $ag-value-change-delta-up-color: null !default;
+    $ag-value-change-delta-down-color: null !default;
+    $ag-chip-background-color: null !default;
     $ag-range-selection-background-color: $ag-icon-color !default;
     $ag-grid-size: 4px !default;
     $ag-icon-size: 12px !default;
@@ -23,6 +35,7 @@
     $ag-row-height: ($ag-grid-size * 6 + 1) !default;
     $ag-cell-horizontal-padding: $ag-grid-size * 3 !default;
     $ag-virtual-item-height: $ag-grid-size * 5 !default;
+    $ag-rich-select-item-height: $ag-virtual-item-height !default;
     $ag-header-icon-size: 14px !default;
     $ag-font-family: 'Helvetica Neue', sans-serif !default;
     $ag-font-size: 14px !default;
@@ -65,86 +78,122 @@
     $ag-group-component-title-background-color: darken($ag-group-component-background-color, 5%) !default;
     $ag-range-selection-chart-background-color: adjust-hue($ag-range-selection-background-color, 25%) !default;
     $ag-range-selection-chart-category-background-color: adjust-hue($ag-range-selection-background-color, -80%) !default;
+    $ag-full-width-tabs: false !default;
+    $ag-icon-font-family: $ag-theme-base-icon-font-family !default;
+    $ag-icons-data: $ag-theme-base-icons-data !default;
     
-
     @return (
-        foreground-color: $ag-foreground-opacity,
+        foreground-color: rgba($ag-foreground-color, $ag-foreground-opacity),
         secondary-foreground-color: rgba($ag-foreground-color, $ag-secondary-foreground-color-opacity),
         header-foreground-color: $ag-header-foreground-color,
         disabled-foreground-color: rgba($ag-foreground-color, $ag-disabled-foreground-color-opacity),
         background-color: $ag-background-color,
         header-background-color: $ag-header-background-color,
-        
         control-panel-background-color: $ag-tool-panel-background-color,
-        selected-row-background-color: ag-derived(background-color, $mix: foreground-color 25%), // TODO
-        odd-row-background-color: null, // TODO
-        row-hover-color: null, // TODO
+        selected-row-background-color: $ag-selected-color,
+        odd-row-background-color: $ag-odd-row-background-color,
+        row-hover-color: $ag-hover-color,
         range-selection-border-color: $ag-primary-color,
         range-selection-background-color: $ag-range-selection-background-color,
-        range-selection-highlight-color: ag-derived(range-selection-border-color), // TODO
-        selected-tab-underline-color: $ag-primary-color, // TODO
-        selected-tab-underline-width: 0, // TODO
-        selected-tab-underline-transition-speed: null, // TODO
+        range-selection-highlight-color: $ag-range-selection-highlight-color,
+        selected-tab-underline-color: $ag-primary-color,
+        selected-tab-underline-width: 0,
+        selected-tab-underline-transition-speed: null,
         range-selection-chart-category-background-color: $ag-range-selection-chart-category-background-color,
         range-selection-chart-background-color: $ag-range-selection-chart-background-color,
-        header-cell-hover-background-color: null, // TODO
+        header-cell-hover-background-color: $ag-header-cell-hover-background-color,
         header-cell-moving-background-color: $ag-header-cell-moving-background-color,
-        value-change-value-highlight-background-color: rgba(#16A085, 0.5), // TODO
-        value-change-delta-up-color: #43a047, // TODO
-        value-change-delta-down-color: #e53935, // TODO
-        chip-background-color: null, // TODO
-        borders: true, // TODO
-        borders-critical: ag-derived(borders), // TODO
-        borders-secondary: ag-derived(borders), // TODO
-        borders-side-button: ag-derived(borders), // TODO
+        value-change-value-highlight-background-color: $ag-value-change-value-highlight-background-color,
+        value-change-delta-up-color: $ag-value-change-delta-up-color,
+        value-change-delta-down-color: $ag-value-change-delta-down-color,
+        chip-background-color: $ag-chip-background-color,
         border-radius: $ag-card-radius,
         border-color: $ag-border-color,
-        secondary-border-color: ag-derived(border-color), // TODO
         row-border-color: if($ag-row-border-width and $ag-row-border-width > 0, $ag-border-color, null),
-        cell-horizontal-border: $ag-cell-horizontal-border, // TODO
-        header-column-separator: false, // TODO
-            header-column-separator-height: 100%, // TODO
-            header-column-separator-width: 1px, // TODO
-            header-column-separator-color: ag-derived(border-color, $opacity: 0.5), // TODO
-        header-column-resize-handle: false, // TODO
-            header-column-resize-handle-height: 50%, // TODO
-            header-column-resize-handle-width: 1px, // TODO
-            header-column-resize-handle-color: ag-derived(border-color, $opacity: 0.5), // TODO
+        cell-horizontal-border: $ag-cell-horizontal-border,
+        header-column-separator: false,
+            header-column-separator-height: 100%,
+            header-column-separator-width: 1px,
+            header-column-separator-color: ag-derived(border-color, $opacity: 0.5),
+        header-column-resize-handle: false,
+            header-column-resize-handle-height: 50%,
+            header-column-resize-handle-width: 1px,
+            header-column-resize-handle-color: ag-derived(border-color, $opacity: 0.5),
         input-disabled-background-color: $ag-input-disabled-background-color,
-        input-border-color: $ag-input-border-color, // TODO
+        input-border-color: $ag-input-border-color,
         checkbox-background-color: $ag-alt-icon-color,
-        checkbox-border-radius: ag-derived(border-radius), // TODO
         checkbox-checked-color: $ag-accent-color,
-        checkbox-unchecked-color: ag-derived(foreground-color), // TODO
-        checkbox-indeterminate-color: ag-derived(checkbox-unchecked-color), // TODO
-        toggle-button-off-color: ag-derived(checkbox-unchecked-color), // TODO
-        toggle-button-switch-color: ag-derived(background-color), // TODO
-        toggle-button-switch-border-width: 1px, // TODO
-        toggle-button-height: ag-derived(icon-size), // TODO
-        toggle-button-width: ag-derived(toggle-button-height, $times: 2), // TODO
+        checkbox-unchecked-color: $ag-icon-color,
+        checkbox-indeterminate-color: $ag-icon-color,
         grid-size: $ag-grid-size,
         icon-size: $ag-icon-size,
-        widget-container-horizontal-padding: ag-derived(grid-size, $times: 1.5), // TODO
-        widget-container-vertical-padding: ag-derived(grid-size, $times: 1.5), // TODO
-        widget-horizontal-spacing: ag-derived(grid-size, $times: 1.5), // TODO
-        widget-vertical-spacing: ag-derived(grid-size), // TODO
         cell-horizontal-padding: $ag-cell-horizontal-padding,
-        cell-widget-spacing: ag-derived(cell-horizontal-padding), // TODO
         row-height: $ag-row-height,
         header-height: $ag-header-height,
         list-item-height: $ag-virtual-item-height,
         column-select-indent-size: $ag-toolpanel-indent-size,
         row-group-indent-size: $ag-row-group-indent-size,
-        filter-tool-panel-group-indent: 16px, // TODO
-        filter-tool-panel-top-level-row-height: ag-derived(grid-size, $times: 8), // TODO
-        filter-tool-panel-sub-level-row-height: ag-derived(grid-size, $times: 6), // TODO
-        full-width-tabs: false, // TODO
+        full-width-tabs: $ag-full-width-tabs,
         font-family: $ag-font-family,
         font-size: $ag-font-size,
-        icon-font-family: $ag-theme-base-icon-font-family, // TODO
-        icons-data: $ag-theme-base-icons-data, // TODO
-        icons-font-codes: $ag-theme-base-icons-font-codes, // TODO
-        popup-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3) // TODO
+        icon-font-family: $ag-icon-font-family,
+        icons-data: $ag-icons-data,
+        icons-font-codes: (
+            "aggregation": $ag-icon-aggregation,
+            "arrows": $ag-icon-arrows,
+            "asc": $ag-icon-asc,
+            "cancel": $ag-icon-cancel,
+            "chart": $ag-icon-chart,
+            "checkbox-checked": $ag-icon-checkbox-checked,
+            "checkbox-indeterminate": $ag-icon-checkbox-indeterminate,
+            "checkbox-unchecked": $ag-icon-checkbox-unchecked,
+            "color-picker": $ag-icon-color-picker,
+            "column": $ag-icon-column,
+            "columns": $ag-icon-columns,
+            "contracted": $ag-icon-contracted,
+            "copy": $ag-icon-copy,
+            "cross": $ag-icon-cross,
+            "cut": $ag-icon-cut,
+            "data": $ag-icon-data,
+            "desc": $ag-icon-desc,
+            "expanded": $ag-icon-expanded,
+            "eye-slash": $ag-icon-eye-slash,
+            "eye": $ag-icon-eye,
+            "filter": $ag-icon-filter,
+            "first": $ag-icon-first,
+            "grip": $ag-icon-grip,
+            "group": $ag-icon-group,
+            "indeterminate": $ag-icon-indeterminate,
+            "last": $ag-icon-last,
+            "left": $ag-icon-left,
+            "linked": $ag-icon-linked,
+            "loading": $ag-icon-loading,
+            "maximize": $ag-icon-maximize,
+            "menu": $ag-icon-menu,
+            "minimize": $ag-icon-minimize,
+            "minus": $ag-icon-minus,
+            "next": $ag-icon-next,
+            "none": $ag-icon-none,
+            "not-allowed": $ag-icon-not-allowed,
+            "paste": $ag-icon-paste,
+            "pin": $ag-icon-pin,
+            "pivot": $ag-icon-pivot,
+            "plus": $ag-icon-plus,
+            "previous": $ag-icon-previous,
+            "radio-button-off": $ag-icon-radio-button-off,
+            "radio-button-on": $ag-icon-radio-button-on,
+            "right": $ag-icon-right,
+            "save": $ag-icon-save,
+            "small-down": $ag-icon-small-down,
+            "small-left": $ag-icon-small-left,
+            "small-right": $ag-icon-small-right,
+            "small-up": $ag-icon-small-up,
+            "tick": $ag-icon-tick,
+            "tree-closed": $ag-icon-tree-closed,
+            "tree-indeterminate": $ag-icon-tree-indeterminate,
+            "tree-open": $ag-icon-tree-open,
+            "unlinked": $ag-icon-unlinked,
+        )
     );
 
     // TODO emit CSS for these
@@ -154,7 +203,5 @@
     // $ag-font-weight
     // $ag-secondary-font-*
 
-    // TODO warning as removed
-    // (ag-)icon-color
-    // (ag-)rich-select-item-height
+    // TODO warning if ag-rich-select-item-height used, but only if different from ag-virtual-item-height
 };
