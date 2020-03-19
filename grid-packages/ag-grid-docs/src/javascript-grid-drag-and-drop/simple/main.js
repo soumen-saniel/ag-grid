@@ -1,11 +1,11 @@
 var rowIdSequence = 100;
 
 var columnDefs = [
-    {valueGetter: "'Drag'", dndSource: true},
-    {field: "id"},
-    {field: "color"},
-    {field: "value1"},
-    {field: "value2"}
+    { valueGetter: "'Drag'", rowDrag: true, checkboxSelection: function() { return true; } },
+    { field: "id" },
+    { field: "color" },
+    { field: "value1" },
+    { field: "value2" }
 ];
 
 var gridOptions = {
@@ -15,6 +15,10 @@ var gridOptions = {
         filter: true,
         resizable: true
     },
+    rowSelection: 'multiple',
+    rowDeselection: true,
+    enableMultiRowDragging: true,
+    suppressMoveWhenRowDragging: true,
     rowClassRules: {
         "red-row": 'data.color == "Red"',
         "green-row": 'data.color == "Green"',
@@ -40,33 +44,29 @@ function createRowData() {
     return data;
 }
 
-function onDragOver(event) {
-    var dragSupported = event.dataTransfer.length;
-
-    if (dragSupported) {
-        event.dataTransfer.dropEffect = 'move';
-    }
-
-    event.preventDefault();
-}
-
-function onDrop(event) {
-    var userAgent = window.navigator.userAgent;
-    var isIE = userAgent.indexOf('Trident/') >= 0;
-    var jsonData = event.dataTransfer.getData(isIE ? 'text' : 'application/json');
-
-    var eJsonRow = document.createElement('div');
-    eJsonRow.classList.add('json-row');
-    eJsonRow.innerText = jsonData;
-
-    var eJsonDisplay = document.querySelector('#eJsonDisplay');
-
-    eJsonDisplay.appendChild(eJsonRow);
-    event.preventDefault();
-}
-
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', function() {
     var gridDiv = document.querySelector('#myGrid');
     new agGrid.Grid(gridDiv, gridOptions);
+
+    gridOptions.api.addDropZone(
+        document.querySelector('#eJsonDisplay'),
+        null,
+        function(params) {
+            var eJsonDisplay = document.querySelector('#eJsonDisplay'),
+                selected = params.api.getSelectedNodes(),
+                eJsonRow;
+
+            if (selected.indexOf(params.dragItem.rowNode) === -1) {
+                selected.push(params.dragItem.rowNode)
+            }
+            
+            for (var i = 0; i < selected.length; i++) {
+                eJsonRow = document.createElement('div');
+                eJsonRow.classList.add('json-row');
+                eJsonRow.innerText = JSON.stringify(selected[i].data);
+                eJsonDisplay.appendChild(eJsonRow);
+            }
+        }
+    );
 });
